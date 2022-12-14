@@ -43,3 +43,13 @@ const data = {
     }
 }
 
+function rankAscendingOrder(data) {
+    if (data.length <= 1) return data;
+    let results = []
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].results[0].payload[0].profile[0].rank < )
+    }
+
+    return results
+}
