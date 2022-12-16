@@ -4,52 +4,122 @@
 // 1.Merge sort (ascending order) by the rank
 // 2.Merge sort (ascending order) by the ratings AND rank
 // Please see below for the data returned from the database
-const data = {
-    results: {
-        payload: [
-            {
-                profile: {
-                    name: 'Tony',
-                    rank: 9,
-                    favorites: [
-                        {
-                            title: 'Spider-Man',
-                            rating: 5
-                        },
-                        {
-                            title: 'Spongebob',
-                            rating: 9
-                        }
-                    ]
-                }
-            },
-            {
-                profile: {
-                    name: 'John',
-                    rank: 2,
-                    favorites: [
-                        {
-                            title: 'Hulk',
-                            rating: 1
-                        },
-                        {
-                            title: 'Top Gun',
-                            rating: 8
-                        }
-                    ]
-                }
-            }
-        ]
+// const data = {
+//     results: {
+//         payload: [
+//             {
+//                 profile: {
+//                     name: 'Tony',
+//                     rank: 9,
+//                     favorites: [
+//                         {
+//                             title: 'Spider-Man',
+//                             rating: 5
+//                         },
+//                         {
+//                             title: 'Spongebob',
+//                             rating: 9
+//                         }
+//                     ]
+//                 }
+//             },
+//             {
+//                 profile: {
+//                     name: 'John',
+//                     rank: 2,
+//                     favorites: [
+//                         {
+//                             title: 'Hulk',
+//                             rating: 1
+//                         },
+//                         {
+//                             title: 'Top Gun',
+//                             rating: 8
+//                         }
+//                     ]
+//                 }
+//             }
+//         ]
+//     }
+// }
+// console.log(data.results.payload[1].profile.rank)
+// data.results.payload[1].profile.rank
+
+
+// split the array of payload into two arrays
+// compare the ranking of each array
+// merge the array back 
+
+// const sortThisByRank = data.results.payload.sort(
+//     (rankA, rankB) => rankA.profile.rank - rankB.profile.rank,
+// )
+// console.log(sortThisByRank)
+
+// const mergesort = (sortThisByRank) => {
+
+//     let left = sortThisByRank[0]
+//     let right = sortThisByRank[1]
+
+// }
+// console.log(mergesort(sortThisByRank))
+
+// Problem #2: Singly Linked List: 
+// Please construct the two classes with the appropriate properties for the Node and SLL, then for the SLL, 
+// please write the methods for: 
+// Push()
+// Pop()
+
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
     }
 }
 
-function rankAscendingOrder(data) {
-    if (data.length <= 1) return data;
-    let results = []
-
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].results[0].payload[0].profile[0].rank < )
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = null;
     }
+    push(val) {
+        let newNode = newNode(val)
 
-    return results
+        if (!this.head) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            this.tail.next = newNode
+            this.tail = newNode
+        }
+
+        this.length++;
+        return this
+    }
+    pop() {
+        if (!this.head) return;
+
+        let current = this.head
+        let newTail = current
+
+        while (current.next) {
+            newTail = current
+            current = current.next
+        }
+
+        this.tail = newTail
+
+        this.tail.next = null
+
+        this.length--
+
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
+
+        return current
+    }
 }
+
+
