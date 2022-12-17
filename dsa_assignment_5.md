@@ -60,6 +60,8 @@ please write the methods for: <br>
 Push()<br>
 Pop()<br>
 
+Solution:
+
         class Node {
             constructor(val) {
                 this.val = val;
@@ -118,10 +120,34 @@ Problem #3: Please solve this pattern using time complexity of O(n) and using th
 
 <img src="assignment_5_problem_3.jpg" alt="">
 
+Solution
+
     /**
     * @param {number[]} height
     * @return {number}
     */
+    // height = [1, 8, 6, 2, 5, 4, 8, 3, 7] // 49
+    // height = [1, 1] // 1
     const maxArea = (height) => {
-    
+
+        let left = 0
+        let right = height.length - 1
+
+        let maxWater = 0
+
+        while (left < right) {
+
+            let minHeight = Math.min(height[left], height[right])
+
+            maxWater = Math.max(maxWater, minHeight * (right - left))
+
+            if (height[left] < height[right]) {
+                left++
+            } else {
+                right--
+            }
+        }
+        return maxWater
     };
+
+    console.log(maxArea(height)) 
